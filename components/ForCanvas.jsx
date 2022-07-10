@@ -1,26 +1,22 @@
 import {
-  Lightformer,
   PerspectiveCamera,
   Preload,
   Scroll,
   ScrollControls,
-  SpotLight,
-  useDepthBuffer,
-  useScroll,
+
 } from "@react-three/drei";
-import { Canvas, Camera, useFrame, extend, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { GodRays } from "@react-three/postprocessing";
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { Suspense, useEffect, useRef, useMemo, useState } from "react";
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
-import { FogExp2, Vector2 } from "three";
+import { Vector2 } from "three";
 import * as React from 'react';
 import styles from "../styles/Component.module.scss";
 import Model from "./ModelLoad";
 import Image from 'next/image';
-
+import { Html, useProgress } from '@react-three/drei'
 
 extend({ EffectComposer, RenderPass, FilmPass, UnrealBloomPass });
 
@@ -41,26 +37,7 @@ const Effect = () => {
 
 export default function ForCanvas() {
 
-  const [deltaY, setDeltaY] = useState();
-  const [event, setEvent] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-
-  function onMouseWheel(e) {
-    // console.log('scroll->', scroll.offset);
-    var delta = e.deltaY;
-    setDeltaY(delta);
-    setEvent(!event);
-    // console.log('onwheel-->', delta);
-    // if (scroll.offset >= 0.5 && scroll.offset <= 0.72) {
-    //   scroll.scroll.current += delta * 0.0001;
-    // }
-    // else if (scroll.offset > 0.72) {
-    //   // console.log('here--->');
-    //   scroll.offset = 0.725;
-    //   scroll.scroll.current = 0.725;
-    // }
-  }
-
   const onHamburgerClick = () => {
     setShowMenu(true);
   }
@@ -71,21 +48,19 @@ export default function ForCanvas() {
     setShowMenu(false);
   }
 
+
+
   return (
     <>
       <div
-        // onWheel={onMouseWheel}
         className={styles.scene} id="div1">
         <Canvas
           shadows
         >
           <PerspectiveCamera />
-          {/* <fog attach="fog" args={["#050505", 40, 60]} /> */}
           <fog attach="fog" args={["#050505", 280, 350]} />
-          {/* <directionalLight position={[20, 100, 0]} /> */}
-          {/* <ambientLight position={[115.634 ,-0.199677, 151.107 ]} scale={1} /> */}
           <ambientLight position={[-38.1183, -269.879, 175.15]} scale={1} />
-          <Suspense fallback={null}>
+          <Suspense fallback={<Html center><div className={styles.loading} /></Html>}>
             <ScrollControls pages={15} distance={3}>
               <Scroll>
                 <Model scale={1} />
@@ -163,3 +138,8 @@ export default function ForCanvas() {
     </>
   );
 }
+// function Loader() {
+//   const { progress } = useProgress()
+//   // return <Html center>{progress} % loaded</Html>
+//   return 
+// }

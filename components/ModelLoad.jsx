@@ -6,36 +6,20 @@ import {
   useGLTF,
   useScroll,
   useTexture,
-  Cloud,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+// import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
+
 import {
-  EffectComposer,
-  Bloom,
-  Noise,
-  SelectiveBloom,
-} from "@react-three/postprocessing";
-import { useEffect, useLayoutEffect, useState } from "react";
-import THREE, {
-  ShaderMaterial,
   MeshStandardMaterial,
-  LoopPingPong,
-  Vector3,
   DoubleSide,
   FrontSide,
-  BackSide,
   AlwaysDepth,
-  NotEqualDepth,
-  LessEqualDepth,
   LessDepth,
-  Color,
-  BoxBufferGeometry,
-  PointLight
 } from "three";
 import styles from "../styles/Component.module.scss";
 import { damp } from "three/src/math/MathUtils";
-import { motion } from "framer-motion";
-import { FaTwitter } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Pagination } from "swiper";
 import "swiper/css";
@@ -48,10 +32,6 @@ const Model = (props) => {
   useFrame((state, delta) => {
     const action = actions["CameraAction"];
     const offset = scroll.scroll.current;
-    // var offset = 0;
-    // offset += deltaY * 0.001;
-    // console.log('offset state-->', offset);
-    // console.log('useFrame Delta', delta);
     action.time = damp(
       action.time,
       action.getClip().duration * offset,
@@ -69,30 +49,6 @@ const Model = (props) => {
       cameras[0].rotation.z
     );
   });
-
-  // useEffect(() => {
-  //   const action = actions["CameraAction"];
-  //   scroll.scroll.current += props.delta * 0.0001;
-  //   const offset = scroll.offset;
-  //   action.time = damp(
-  //     action.time,
-  //     action.getClip().duration * offset,
-  //     10,
-  //     frameDelta
-  //   );
-  //   frameState.camera.position.set(
-  //     cameras[0].position.x,
-  //     cameras[0].position.y,
-  //     cameras[0].position.z
-  //   );
-  //   frameState.camera.rotation.set(
-  //     cameras[0].rotation.x,
-  //     cameras[0].rotation.y,
-  //     cameras[0].rotation.z
-  //   );
-  //   console.log('delta', props.delta);
-  // }, [props.event]);
-
 
   const { scene, nodes, animations, cameras, materials } = useGLTF("fin.gltf");
   const { actions } = useAnimations(animations, cameras[0]);
@@ -142,8 +98,6 @@ const Model = (props) => {
   nodes.Scene.children[cylinder005_index].material = greyColor;
   const cylinder006_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder006");
   nodes.Scene.children[cylinder006_index].material = greyColor;
-  // const cylinder035_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder035");
-  // nodes.Scene.children[cylinder035_index].material = coloronly6;
   const cylinder017_index = nodes.Scene.children.findIndex(x => x.name === "Cylinder017");
   nodes.Scene.children[cylinder017_index].children[0].material = lightColor;
   nodes.Scene.children[cylinder017_index].children[1].material = lightColor;
@@ -206,9 +160,6 @@ const Model = (props) => {
 
 
   const x = useAnimations(animations, scene);
-  // const material2 = new MeshStandardNodeMaterial();
-  // console.log(materials["ProceduralScifiPanels"])
-  // Load Textures
   const Body = useTexture([
     "/Assets/Final_Sneak_Peek.png",
     "/Assets/ludvig-wiese-d-MfHM-jHwc-unsplash.jpg",
@@ -617,11 +568,11 @@ const Model = (props) => {
     }
   }
 
-  useLayoutEffect(() =>
-    Object.values(nodes).forEach(
-      (node) => (node.receiveShadow = node.castShadow = true)
-    )
-  );
+  // useLayoutEffect(() =>
+  //   Object.values(nodes).forEach(
+  //     (node) => (node.receiveShadow = node.castShadow = true)
+  //   )
+  // );
 
   function animate() {
     requestAnimationFrame(animate);

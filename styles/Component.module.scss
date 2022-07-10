@@ -10,7 +10,12 @@
   font-family: 'Poppin';
   src: url(../public/Assets/nav/Poppins-Medium.ttf) format('truetype');
 }
-
+.loading{
+  width: 100vw;
+  height: 100vh;
+  background: url(../public/Assets/pageloading.gif) center center no-repeat;
+  // background-size: cover;
+}
 .roadmap {
   width: 250px;
   height: 250px;
