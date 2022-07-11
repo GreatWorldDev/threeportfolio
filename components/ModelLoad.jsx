@@ -606,7 +606,7 @@ const Model = (props) => {
     return (
       <mesh>
 
-        <Html transform occlude position={[3.749, -13.3, 29.601]} rotation={[1.571, 0, 0]}>
+        <Html transform occlude position={[3.749, -13.1, 29.601]} rotation={[1.571, 0, 0]}>
           <div className={styles.roadmap}>
           <Swiper
               grabCursor={true}
@@ -630,40 +630,40 @@ const Model = (props) => {
                 <Image
                   src="/Assets/team/R1.png"
                   alt=""
-                  width={500}
-                  height={400}
+                  width={300}
+                  height={200}
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <Image
                   src="/Assets/team/R2.png"
                   alt=""
-                  width={500}
-                  height={400}
+                  width={300}
+                  height={200}
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <Image
                   src="/Assets/team/R3.png"
                   alt=""
-                  width={500}
-                  height={400}
+                  width={300}
+                  height={200}
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <Image
                   src="/Assets/team/R4.png"
                   alt=""
-                  width={500}
-                  height={400}
+                  width={300}
+                  height={200}
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <Image
                   src="/Assets/team/R5.png"
                   alt=""
-                  width={500}
-                  height={400}
+                  width={300}
+                  height={200}
                 />
               </SwiperSlide>
             </Swiper>
