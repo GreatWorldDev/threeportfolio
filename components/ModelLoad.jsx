@@ -658,7 +658,6 @@ const Model = (props) => {
                   height={400}
                 />
               </SwiperSlide>
-              
               <SwiperSlide>
                 <Image
                   src="/Assets/team/R5.png"
