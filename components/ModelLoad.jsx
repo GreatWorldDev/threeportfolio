@@ -627,20 +627,44 @@ const Model = (props) => {
               className="roadmapswiper"
             >
               <SwiperSlide>
-                      <Image
-                        src="/Assets/team/roadmap1.png"
-                        alt=""
-                        width={500}
-                        height={500}
-                      />
+                <Image
+                  src="/Assets/team/R1.png"
+                  alt=""
+                  width={500}
+                  height={400}
+                />
               </SwiperSlide>
               <SwiperSlide>
-                      <Image
-                        src="/Assets/team/roadmap2.png"
-                        alt=""
-                        width={500}
-                        height={500}
-                      />
+                <Image
+                  src="/Assets/team/R2.png"
+                  alt=""
+                  width={500}
+                  height={400}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/Assets/team/R3.png"
+                  alt=""
+                  width={500}
+                  height={400}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/Assets/team/R4.png"
+                  alt=""
+                  width={500}
+                  height={400}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src="/Assets/team/R5.png"
+                  alt=""
+                  width={500}
+                  height={400}
+                />
               </SwiperSlide>
             </Swiper>
           </div>
