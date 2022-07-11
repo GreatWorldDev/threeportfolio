@@ -626,9 +626,9 @@ const Model = (props) => {
               modules={[EffectCreative, Pagination]}
               className="roadmapswiper"
             >
-              <SwiperSlide>
+              {/* <SwiperSlide>
                 <Image
-                  src={"/Assets/team/R1.png"}
+                  src="/Assets/team/R1.png"
                   alt=""
                   width={500}
                   height={400}
@@ -636,7 +636,7 @@ const Model = (props) => {
               </SwiperSlide>
               <SwiperSlide>
                 <Image
-                  src={"/Assets/team/R2.png"}
+                  src="/Assets/team/R2.png"
                   alt=""
                   width={500}
                   height={400}
@@ -644,7 +644,7 @@ const Model = (props) => {
               </SwiperSlide>
               <SwiperSlide>
                 <Image
-                  src={"/Assets/team/R3.png"}
+                  src="/Assets/team/R3.png"
                   alt=""
                   width={500}
                   height={400}
@@ -652,7 +652,7 @@ const Model = (props) => {
               </SwiperSlide>
               <SwiperSlide>
                 <Image
-                  src={"/Assets/team/R4.png"}
+                  src="/Assets/team/R4.png"
                   alt=""
                   width={500}
                   height={400}
@@ -660,12 +660,12 @@ const Model = (props) => {
               </SwiperSlide>
               <SwiperSlide>
                 <Image
-                  src={"/Assets/team/R5.png"}
+                  src="/Assets/team/R5.png"
                   alt=""
                   width={500}
                   height={400}
                 />
-              </SwiperSlide>
+              </SwiperSlide> */}
             </Swiper>
           </div>
         </Html>
