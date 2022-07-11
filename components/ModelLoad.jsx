@@ -8,7 +8,6 @@ import {
   useTexture,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-// import { useEffect, useLayoutEffect } from "react";
 import { useEffect } from "react";
 
 import {
@@ -75,6 +74,7 @@ const Model = (props) => {
   var effect, cube, plane015, cube_text1, cube_text2, cube_text3, cube_139, cube_33, shadow_1, shadow_2, text_017, text_1, text_2, text_3, text_4, text_5, text_6, text_7;
 
   const text_index = nodes.Scene.children.findIndex(x => x.name === "Text");
+  
   const text1_index = nodes.Scene.children.findIndex(x => x.name === "Text001");
   const text2_index = nodes.Scene.children.findIndex(x => x.name === "Text002");
   const text022_index = nodes.Scene.children.findIndex(x => x.name === "Text022");
@@ -85,7 +85,6 @@ const Model = (props) => {
   cube_text2.material = text;
   cube_text3 = nodes.Scene.children[text2_index];
   cube_text3.material = text;
-
   const cube028_index = nodes.Scene.children.findIndex(x => x.name === "Cube028");
   nodes.Scene.children[cube028_index].visible = false;
 
@@ -422,8 +421,6 @@ const Model = (props) => {
     { childID: "Cube053", mtl: coloronly10 },
     { childID: "Cube137_1", mtl: coloronly10 },
     { childID: "Cube084_1", mtl: coloronly10 },
-    // { childID: "Cube061_1", mtl: coloronly10 },
-    // { childID: "Cube136_1", mtl: coloronly10 },
     { childID: "Cube025", mtl: materials.Metal_Aluminum_Anodized },
     { childID: "Cube074", mtl: materials.Upperfog },
     { childID: "Text003", mtl: coloronly13 },
@@ -586,34 +583,6 @@ const Model = (props) => {
     void (actions["CameraAction"].play().paused = true), [actions];
   });
   x.actions["Text.017Action"].play();
-
-  // var offset;
-
-  // useFrame((state, delta) => {
-  //   const action = actions["CameraAction"];
-  //   // deltaY
-  //   const offset = scroll.offset;
-  //   // var offset = 0;
-  //   // offset += deltaY * 0.001;
-  //   console.log('offset state-->', offset);
-  //   action.time = damp(
-  //     action.time,
-  //     action.getClip().duration * offset,
-  //     10,
-  //     delta
-  //   );
-  //   state.camera.position.set(
-  //     cameras[0].position.x,
-  //     cameras[0].position.y,
-  //     cameras[0].position.z
-  //   );
-  //   state.camera.rotation.set(
-  //     cameras[0].rotation.x,
-  //     cameras[0].rotation.y,
-  //     cameras[0].rotation.z
-  //   );
-  // });
-
   animate();
 
   function onMouseWheel(e) {
@@ -639,24 +608,41 @@ const Model = (props) => {
 
         <Html transform occlude position={[3.749, -13.3, 29.601]} rotation={[1.571, 0, 0]}>
           <div className={styles.roadmap}>
-            <div className={styles.part1} >
-              <div className={styles.text} >
-                Undisturbed activities: <br />
-                Expanding the treasury<br />
-                Learn-ro-earn
-              </div>
-              <div className={styles.line} />
-              <div className={styles.circle} />
-            </div>
-            <div className={styles.part2} >
-              <div className={styles.text} >
-                Undisturbed activities: <br />
-                Expanding the treasury<br />
-                Learn-ro-earn
-              </div>
-              <div className={styles.line} />
-              <div className={styles.circle} />
-            </div>
+          <Swiper
+              grabCursor={true}
+              effect={"creative"}
+              pagination={{
+                clickable: true,
+              }}
+              creativeEffect={{
+                prev: {
+                  // shadow: true,
+                  translate: ["-100%", 0, -1],
+                },
+                next: {
+                  translate: ["100%", 0, 0],
+                },
+              }}
+              modules={[EffectCreative, Pagination]}
+              className="roadmapswiper"
+            >
+              <SwiperSlide>
+                      <Image
+                        src="/Assets/team/roadmap1.png"
+                        alt=""
+                        width={500}
+                        height={500}
+                      />
+              </SwiperSlide>
+              <SwiperSlide>
+                      <Image
+                        src="/Assets/team/roadmap2.png"
+                        alt=""
+                        width={500}
+                        height={500}
+                      />
+              </SwiperSlide>
+            </Swiper>
           </div>
         </Html>
       </mesh>
@@ -695,52 +681,12 @@ const Model = (props) => {
                   <div className={styles.teamWrapper}>
                     <div className={styles.teamImage}>
                       <Image
-                        src="/Assets/team/Lovin.jpeg"
+                        src="/Assets/team/1.png"
                         alt=""
-                        width={200}
-                        height={200}
+                        width={1000}
+                        height={1000}
                       />
                     </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '-1px' }}
-                      >ORGANIZATION ID NAME - Lovin</h1>
-                      <p
-                        style={{ marginTop: '-3px' }}
-                      >
-                        Mastermind (Project Manager). First to live and die for
-                        the movement Built identities for 15 years. Has worked
-                        incognito with Audesser brands: Mercedes, Pepsi, Rockstar;
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
-                  </div>
-                  <div className={styles.teamWrapper}>
-                    <div className={styles.teamImage}>
-                      <Image
-                        src="/Assets/team/Bishop.png"
-                        alt=""
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    <div className={styles.label}>
-                      <h1
-                        tyle={{ marginTop: '2px' }}
-                      >ORGANIZATION ID NAME - Bishop</h1>
-                      <p
-                        style={{ marginTop: '-3px' }}
-                      >
-                        The Black Chapeau (Developer) Beau Coup's shepherd of
-                        clever minds. Connects the Sifter channels. Crypto
-                        Adaptor, having worked on various Decentralized systems;
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -749,53 +695,12 @@ const Model = (props) => {
                   <div className={styles.teamWrapper}>
                     <div className={styles.teamImage}>
                       <Image
-                        src="/Assets/team/Smoke.png"
+                        src="/Assets/team/2.png"
                         alt=""
-                        width={200}
-                        height={200}
+                        width={1000}
+                        height={1000}
                       />
                     </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '3px' }}
-                      >ORGANIZATION ID NAME - Smoke</h1>
-                      <p
-                        style={{ marginTop: '-2px' }}
-                      >
-                        Orateur extraordinaire (Marketer) Propaganda leader,
-                        Audesser's most wanted. Recruited from web 2.0 for his
-                        talents.
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
-                  </div>
-                  <div className={styles.teamWrapper}>
-                    <div className={styles.teamImage}>
-                      <Image
-                        src="/Assets/team/Rust.png"
-                        alt=""
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '1px' }}
-                      >ORGANIZATION ID NAME - Rust</h1>
-                      <p
-                        style={{ marginTop: '-4px' }}
-                      >
-                        Chef Comptroller (Financials) Never shot a gun yet he
-                        always has the money shot. Supply and currency manager;
-                        Keeps the organization stable Managed a 70 personnel
-                        company.
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -804,52 +709,12 @@ const Model = (props) => {
                   <div className={styles.teamWrapper}>
                     <div className={styles.teamImage}>
                       <Image
-                        src="/Assets/team/MercedHees.png"
+                        src="/Assets/team/3.png"
                         alt=""
-                        width={200}
-                        height={200}
+                        width={1000}
+                        height={1000}
                       />
                     </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '3px' }}
-                      >ORGANIZATION ID NAME - MercedHees</h1>
-                      <p
-                        style={{ marginTop: '-3px' }}
-                      >
-                        Beau Crowd whisperer (Community Manager) He makes your
-                        head spin and you're gonna love it. Defense strategist;
-                        Leader in diplomacy.
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
-                  </div>
-                  <div className={styles.teamWrapper}>
-                    <div className={styles.teamImage}>
-                      <Image
-                        src="/Assets/team/Moon-Bagger.png"
-                        alt=""
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '1px' }}
-                      >ORGANIZATION ID NAME - Moon-Bagger</h1>
-                      <p
-                        style={{ marginTop: '-5px' }}
-                      >
-                        Flag Porteur (Community Manager) As long as he's standing,
-                        the movement lives on. Raid strategist; Novice trainer
-                        Well connected in the Asian space; Web 3.0 adaptor
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -858,51 +723,12 @@ const Model = (props) => {
                   <div className={styles.teamWrapper}>
                     <div className={styles.teamImage}>
                       <Image
-                        src="/Assets/team/Gman.png"
+                        src="/Assets/team/4.png"
                         alt=""
-                        width={200}
-                        height={200}
+                        width={1000}
+                        height={1000}
                       />
                     </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '2px' }}
-                      >ORGANIZATION ID NAME - Gman</h1>
-                      <p>
-                        The White Chapeau (Protection) Builder of walls of fire
-                        and brimstone. Security of the Beau Coup servers;
-                      </p>
-                    </div>
-
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
-                  </div>
-                  <div className={styles.teamWrapper}>
-                    <div className={styles.teamImage}>
-                      <Image
-                        src="/Assets/team/Insurgents.png"
-                        alt=""
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '0px' }}
-                      >ORGANIZATION GROUP NAME - Insurgents</h1>
-                      <p
-                        style={{ marginTop: '-5px' }}
-                      >
-                        Ximads; Direé; Sanchez; EuroSadBoy; Frank Beaucoup Beaus
-                        (Artists) Creators of propaganda. The movement paints the
-                        world with their hands. Worked with brands such as: Nike;
-                        Rebook including many more;
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -911,53 +737,12 @@ const Model = (props) => {
                   <div className={styles.teamWrapper}>
                     <div className={styles.teamImage}>
                       <Image
-                        src="/Assets/team/Enforcers.png"
+                        src="/Assets/team/5.png"
                         alt=""
-                        width={200}
-                        height={200}
+                        width={1000}
+                        height={1000}
                       />
                     </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '3px' }}
-                      >ORGANIZATION GROUP NAME - Enforcers</h1>
-                      <p
-                        style={{ marginTop: '-5px' }}
-                      >
-                        Darkblizzard; DocHuckleberry; Samseo; HarryNiu HKJC; K7;
-                        Matei; Siomay; Ganjagymgod; HotmessMellow Moderators; The
-                        Beau Coup's Tier 1
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
-                  </div>
-                  <div className={styles.teamWrapper}>
-                    <div className={styles.teamImage}>
-                      <Image
-                        src="/Assets/team/strategist.png"
-                        alt=""
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                    <div className={styles.label}>
-                      <h1
-                        style={{ marginTop: '0px' }}
-                      >ORGANIZATION GROUP NAME - Strategist</h1>
-                      <p
-                        style={{ marginTop: '-4px' }}
-                      >
-                        Dyno; Ayhth; Haputt; Jfx187; Mike Costache Advisers; The
-                        Beau Coup's consultants M.C. has managed Hedge Funds;
-                        Haputt part of leading VC Asia Dyno Co-founder of 721club,
-                        OpenDAO
-                      </p>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.line2} />
-                    <div className={styles.circle} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -978,7 +763,6 @@ const Model = (props) => {
       </group>
       <group>
         <PerspectiveCamera makeDefault name="Camera" fov={22.89} far={1000} />
-        {/* <Nav /> */}
         <SpotLight
           position={[20, -20, 7]}
           distance={14}
@@ -1153,10 +937,6 @@ const Model = (props) => {
             color={"#fb00ff"}
             anglePower={6}
           />
-          {/* <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color={"#464343"} />
-          </mesh> */}
         </group>
         <group
           name="point_light_6"
@@ -1200,55 +980,10 @@ const Model = (props) => {
           power={100}
           distance={40}
         />
-
-        {/* <EffectComposer> */}
-        {/* <SelectiveBloom
-          selection={[
-            // nodes.Cube008,
-            // nodes.Plane001,
-            // nodes.Plane008,
-            // nodes.Plane005,
-            // nodes.Plane004,
-            // nodes.Text,
-            // nodes.Text001,
-            // nodes.Text002,
-            // nodes.Text004,
-            // nodes.Text005,
-            // nodes.Text009,
-            // nodes.Text010,
-            // nodes.Text011,
-            // nodes.Text012,
-            // nodes.Text014,
-            // nodes.Text015,
-            // nodes.Text003,
-            // nodes.Text008,
-            // nodes.Text017,
-            // nodes.Text018,
-            // nodes.Text019,
-            // nodes.Text020,
-            // nodes.Text021,
-            // nodes.Plane010,
-            // nodes.Plane011,
-            // nodes.Plane006,
-            // nodes.Plane012,
-            // nodes.Plane015,
-            // nodes.Cube012,
-          ]}
-          luminanceThreshold={-0.5}
-          luminanceSmoothing={-500}
-          height={1000}
-        /> */}
-        {/* <Noise premultiply={true} opacity={6} /> */}
         <primitive object={scene} {...props}>
           <mesh />
         </primitive>
-        {/* <mesh  position={[20.127, -10.159, 7.288]} rotation={[Math.PI / 2, 0, 0]} name="effect_plane_1">
-            <planeBufferGeometry attach="geometry" args={[2.770, 5.770]} />
-            <meshStandardMaterial attach="material" color={'#00ff00'} map={EffectTexture[0]} />
-          </mesh> */}
-        {/* <mesh name="effect_plane_1" geometry={effect.geometry} material={effect_map1} position={[20.137, -10.179, 7.283]} rotation={[Math.PI / 2, 0, 0]} scale={[1.361, 2.849, 2.849]} />
-        <mesh name="effect_plane_2" geometry={cube.geometry} position={[10.046, -10.179, 11.528]} rotation={[Math.PI / 2, 0, 0]} scale={[1.361, 2.849, 2.849]} /> */}
-        <mesh name="shadow_1" geometry={shadow_1.geometry} material={shadow} position={[11.388, -19.92, -0.23]} rotation={[0, 0, - Math.PI / 2]} scale={[2.246, 2.246, 2.246]} />
+        {/* <mesh name="shadow_1" geometry={shadow_1.geometry} material={shadow} position={[11.388, -19.92, -0.23]} rotation={[0, 0, - Math.PI / 2]} scale={[2.246, 2.246, 2.246]} />
         <mesh name="shadow_1" geometry={shadow_2.geometry} material={shadow} position={[23.188, -19.92, -0.23]} rotation={[0, 0, - Math.PI / 2]} scale={[2.246, 2.246, 2.246]} />
         <mesh name="text_1" geometry={text_1.geometry} material={coloronly14} position={[5.086, -15.828, 1.195]} rotation={[Math.PI / 2, 0, 0]} scale={[1.182, 1.182, 0.01]} />
         <mesh name="text_2" geometry={text_2.geometry} material={coloronly15} position={[8.094, -15.848, 1.67]} rotation={[Math.PI / 2, 0, 0.054]} scale={[0.623, 0.623, 0.01]} />
@@ -1260,10 +995,7 @@ const Model = (props) => {
         <mesh name="cube_text1" geometry={cube_text1.geometry} material={coloronly20} position={[15.632, -12.846, 11.316]} rotation={[Math.PI / 2, Math.PI / 2, 0]} scale={[1.638, 1.638, 1.638]} />
         <mesh name="cube_text2" geometry={cube_text2.geometry} material={coloronly20} position={[9.418, -13.985, 11.316]} rotation={[Math.PI / 2, 0, 0]} scale={[1.638, 1.638, 1.638]} />
         <mesh name="cube_text3" geometry={cube_text3.geometry} material={coloronly20} position={[14.676, -13.944, 11.316]} rotation={[Math.PI / 2, Math.PI / 4, 0]} scale={[2.249, 2.249, 2.249]} />
-        <mesh name="plane015" geometry={plane015.geometry} material={coloronly21} position={[0.740, 6, 15]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[5.460, 10.421, 1.421]} />
-        {/* <mesh name="text_017" geometry={text_017.geometry} material={lightColor} position={[32.573, -8.238, 110.366]} rotation={[-1.484, 0, 3.141]} scale={[13.055, 13.055, 13.055]} /> */}
-        {/* <mesh name="cube_33" geometry={cube_33.geometry} material={coloronly20} position={[5.757, -15.060, 1.119]} rotation={[0, 0, 0]} scale={[11.106, 0.883, 1.236]} /> */}
-        {/* </EffectComposer> */}
+        <mesh name="plane015" geometry={plane015.geometry} material={coloronly21} position={[0.740, 6, 15]} rotation={[Math.PI / 2, 0, Math.PI]} scale={[5.460, 10.421, 1.421]} /> */}
       </group>
     </>
   );

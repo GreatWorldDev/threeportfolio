@@ -33,6 +33,10 @@ a {
   color: #000;
 }
 
+.roadmapswiper {
+  width: 100%;
+}
+
 .swiper-pagination>span {
   background-color: aliceblue;
 }
