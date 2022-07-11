@@ -608,6 +608,7 @@ const Model = (props) => {
 
         <Html transform occlude position={[3.749, -13.1, 29.601]} rotation={[1.571, 0, 0]}>
           <div className={styles.roadmap}>
+            
           <Swiper
               grabCursor={true}
               effect={"creative"}
@@ -627,44 +628,54 @@ const Model = (props) => {
               className="roadmapswiper"
             >
               <SwiperSlide>
+              <div className={styles.roadmapwrapper}>
                 <Image
                   src="/Assets/team/R1.png"
                   alt=""
                   width={300}
-                  height={200}
+                  height={150}
                 />
+                </div>
               </SwiperSlide>
               <SwiperSlide>
+              <div className={styles.roadmapwrapper}>
                 <Image
                   src="/Assets/team/R2.png"
                   alt=""
                   width={300}
-                  height={200}
+                  height={150}
                 />
+                </div>
               </SwiperSlide>
               <SwiperSlide>
+              <div className={styles.roadmapwrapper}>
                 <Image
                   src="/Assets/team/R3.png"
                   alt=""
                   width={300}
-                  height={200}
+                  height={150}
                 />
+                </div>
               </SwiperSlide>
               <SwiperSlide>
+              <div className={styles.roadmapwrapper}>
                 <Image
                   src="/Assets/team/R4.png"
                   alt=""
                   width={300}
-                  height={200}
+                  height={150}
                 />
+                </div>
               </SwiperSlide>
               <SwiperSlide>
+              <div className={styles.roadmapwrapper}>
                 <Image
                   src="/Assets/team/R5.png"
                   alt=""
                   width={300}
-                  height={200}
+                  height={150}
                 />
+                </div>
               </SwiperSlide>
             </Swiper>
           </div>
