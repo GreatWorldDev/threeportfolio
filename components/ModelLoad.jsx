@@ -626,7 +626,7 @@ const Model = (props) => {
               modules={[EffectCreative, Pagination]}
               className="roadmapswiper"
             >
-              {/* <SwiperSlide>
+              <SwiperSlide>
                 <Image
                   src="/Assets/team/R1.png"
                   alt=""
@@ -665,7 +665,7 @@ const Model = (props) => {
                   width={500}
                   height={400}
                 />
-              </SwiperSlide> */}
+              </SwiperSlide>
             </Swiper>
           </div>
         </Html>
