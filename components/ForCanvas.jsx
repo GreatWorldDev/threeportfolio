@@ -17,7 +17,7 @@ import styles from "../styles/Component.module.scss";
 import Model from "./ModelLoad";
 import Image from 'next/image';
 import { Html, useProgress } from '@react-three/drei'
-
+import ScrollButton from './Shared/ScrollButton'
 extend({ EffectComposer, RenderPass, FilmPass, UnrealBloomPass });
 
 const Effect = () => {
@@ -132,6 +132,7 @@ export default function ForCanvas() {
                   height={30}
                 />
               </div>
+              <ScrollButton />
             </div>
           </div>
       }
